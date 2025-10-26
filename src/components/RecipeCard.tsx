@@ -29,7 +29,7 @@ export default function RecipeCard({ recipe }: { recipe: RecipePreview }) {
           sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 33vw"
           className="object-cover transition-transform duration-500 group-hover:scale-105"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-t from-black/40 via-black/10 to-transparent" />
       </div>
 
       {/* Contenido de texto */}
@@ -44,7 +44,11 @@ export default function RecipeCard({ recipe }: { recipe: RecipePreview }) {
           {recipe.description || 'Una deliciosa receta para probar hoy.'}
         </p>
         {/* Indicador visual de acción */}
-        <span className="mt-3 inline-block rounded-full bg-blue-100 px-3 py-1 text-sm font-medium text-blue-600 transition-all duration-300 group-hover:bg-blue-200">
+        <span
+          className="mt-3 inline-block rounded-full bg-blue-100 px-3 py-1 text-sm font-medium
+             text-blue-600 transition-all duration-300 group-hover:bg-blue-200
+             focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-1"
+        >
           Ver receta
         </span>
       </div>

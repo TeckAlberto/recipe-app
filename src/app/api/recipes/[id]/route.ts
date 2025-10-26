@@ -1,10 +1,10 @@
-import { NextResponse } from 'next/server'
+import { NextRequest, NextResponse } from 'next/server'
 import { supabase } from '@/lib/supabase'
 
 export const dynamic = 'force-dynamic'
 
-export async function GET({ params }: { params: { id: string } }) {
-  const { id } = params
+export async function GET(_req: NextRequest, context: { params: Promise<{ id: string }> }) {
+  const { id } = await context.params
 
   if (!id) {
     return NextResponse.json({ error: 'Recipe ID is required' }, { status: 400 })

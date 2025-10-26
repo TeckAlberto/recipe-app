@@ -1,4 +1,3 @@
-// Imports
 import { supabase } from '@/lib/supabase'
 import SearchBar from '@/components/SearchBar'
 import RecipeCard from '@/components/RecipeCard'
@@ -34,13 +33,10 @@ export default async function HomePage(props: { searchParams?: Promise<{ q?: str
 
   return (
     <main className="flex min-h-screen flex-col items-center bg-slate-50 p-6 md:p-12">
-      {/* Título */}
       <h1 className="mb-8 text-4xl font-extrabold text-slate-900 text-center">Recetas Virales</h1>
 
-      {/* Barra de búsqueda “pro” */}
       <SearchBar />
 
-      {/* Grid de recetas */}
       <div className="w-full max-w-6xl mt-8">
         {recipes.length > 0 ? (
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -48,7 +44,7 @@ export default async function HomePage(props: { searchParams?: Promise<{ q?: str
               <div
                 key={recipe.id}
                 className={'animate-fadeSlideUp'}
-                style={{ animationDelay: `${index * 100}ms` }} // 100ms de retraso entre cada tarjeta
+                style={{ animationDelay: `${index * 100}ms` }}
               >
                 <RecipeCard recipe={recipe} />
               </div>
